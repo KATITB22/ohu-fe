@@ -18,7 +18,10 @@ interface Props {
 export const TourMap = ({ data, setMap }: Props) => {
   const isMobile = useMediaQuery('(max-width: 640px)');
   const icon = L.icon({ iconUrl: MarkerIcon });
-
+  var southWest = L.latLng(-60, 100),
+  northEast = L.latLng(70, -100),
+  //saliek kopā SW+NE koordinātas
+    bounds = L.latLngBounds(southWest, northEast);
   return (
     <motion.div {...getTransition('bottom', { delay: 0.1 })}>
       <Box
@@ -32,8 +35,11 @@ export const TourMap = ({ data, setMap }: Props) => {
           style={{ height: '100%', width: '100%' }}
           scrollWheelZoom={false}
           ref={setMap}
+          minZoom={2}
+          maxZoom={5}
+          maxBounds={bounds}
         >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <TileLayer url="../Tiles/{z}/{x}/{y}.png" />
           {data.markers.map((marker) => (
             <Marker key={marker.title} icon={icon} position={marker.position}>
               <Popup>

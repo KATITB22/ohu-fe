@@ -25,19 +25,19 @@ const initTourData: TourData = {
 };
 
 const DUMMY_DATA: TourData = {
-  centerPosition: [-6.889871, 107.610327],
-  zoom: 17,
+  centerPosition: [0,0],
+  zoom: 3,
   markers: [
     {
       title: 'Gerbang Utama',
       logo: 'https://dti.itb.ac.id/wp-content/uploads/2020/11/logo_itb_1024_bw.png',
-      position: [-6.889871, 107.612327],
+      position: [70, -100],
       linkTo: '/'
     },
     {
       title: 'Gerbang Kiri',
       logo: 'https://dti.itb.ac.id/wp-content/uploads/2020/11/logo_itb_1024_bw.png',
-      position: [-6.88836480365328, 107.60846698935434],
+      position: [-60, 107.60846698935434],
       linkTo: '/'
     },
     {
