@@ -40,6 +40,7 @@ export const TempFooter = () => (
         >
           <Image
             src={Logo}
+            draggable="false"
             w="50px"
             objectFit="contain"
             mr={{ base: 0, md: 2 }}

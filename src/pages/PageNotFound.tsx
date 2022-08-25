@@ -12,7 +12,13 @@ export const PageNotFound = () => (
       h="100vh"
       position="relative"
     >
-      <Image objectFit="cover" src={pageNotFoundImage} w="100%" maxW="70ch" />
+      <Image
+        objectFit="cover"
+        src={pageNotFoundImage}
+        w="100%"
+        maxW="70ch"
+        draggable="false"
+      />
       <Box pt={10}>
         <Heading
           fontWeight="400"

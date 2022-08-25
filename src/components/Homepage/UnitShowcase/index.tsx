@@ -1,11 +1,13 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { useAnimation, useInView, motion } from 'framer-motion';
 import { getTransition } from 'src/util/transition';
-import ReactSVG from '@assets/react.svg';
-import Card from './_Card';
+import { TourPopup } from '@components/map-tour/Popup';
+import { getUnits } from 'src/service/unit';
 
 const UnitShowcase = () => {
+  const [showcase, setShowcase]: any = useState([]);
+
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -34,6 +36,19 @@ const UnitShowcase = () => {
       });
     }
   }, [isInView]);
+
+  useEffect(() => {
+    const fetchUnitShowcase = async () => {
+      try {
+        const data = await getUnits('/units/showcase?populate=*');
+        setShowcase(data);
+      } catch (err) {
+        //
+      }
+    };
+
+    fetchUnitShowcase();
+  }, []);
 
   return (
     <Box h="100%" w="100%" overflowX="hidden" overflowY="hidden">
@@ -80,9 +95,13 @@ const UnitShowcase = () => {
             }}
             pb={20}
           >
-            <Card img={ReactSVG} label="Unit A" />
-            <Card img={ReactSVG} label="Unit B" />
-            <Card img={ReactSVG} label="Unit C" />
+            {showcase.map((unit: any) => (
+              <TourPopup
+                isShowcase
+                img={`${import.meta.env.VITE_API_BASE_URL}${unit.image.url}`}
+                label={unit.name}
+              />
+            ))}
           </Flex>
         </Box>
       </motion.section>

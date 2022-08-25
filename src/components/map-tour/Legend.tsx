@@ -34,6 +34,7 @@ export const TourLegend = ({
         borderRadius="full"
         boxSize="67px"
         src={logo}
+        draggable="false"
         onClick={() => map?.setView(position)}
       />
       <Text textAlign="center" fontSize="30px" m="auto 27px" mr="0">

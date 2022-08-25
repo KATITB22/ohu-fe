@@ -62,6 +62,7 @@ const Hero = () => (
     <Image
       src={gedungKiri}
       alt="Gedung Kiri"
+      draggable="false"
       position="absolute"
       top="20px"
       left={{
@@ -78,6 +79,7 @@ const Hero = () => (
     <Image
       src={gedungKanan}
       alt="Gedung Kanan"
+      draggable="false"
       position="absolute"
       top="20px"
       right={{

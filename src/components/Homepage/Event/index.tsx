@@ -55,6 +55,7 @@ const Event: () => JSX.Element = () => {
         >
           <Image
             display={{ base: 'none', lg: 'block' }}
+            draggable="false"
             src={ImageBalloon}
             objectFit="contain"
           />
@@ -89,6 +90,7 @@ const Event: () => JSX.Element = () => {
         >
           <Image
             src={ImageJoget}
+            draggable="false"
             objectFit="contain"
             alignSelf={{ base: 'center', lg: 'flex-start' }}
           />

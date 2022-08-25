@@ -36,7 +36,14 @@ export const LoadingOnly = () => (
     flexDirection="column"
     userSelect="none"
   >
-    <Image src={GIF} objectFit="contain" w="md" zIndex={-99} ml={-20} />
+    <Image
+      src={GIF}
+      objectFit="contain"
+      w="md"
+      zIndex={-99}
+      ml={-20}
+      draggable="false"
+    />
     <Box
       display="flex"
       flexDirection="row"

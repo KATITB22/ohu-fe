@@ -55,12 +55,22 @@ const Navbar = () => {
         </MenuButton>
         <MenuList borderColor="#FFA06E">
           <MenuItem fontFamily="Subheading">
-            <Image src={DashboardLogo} mr="4" alt="dashboard_logo" />
+            <Image
+              src={DashboardLogo}
+              mr="4"
+              alt="dashboard_logo"
+              draggable="false"
+            />
             <Text>Dashboard</Text>
           </MenuItem>
           <MenuDivider />
           <MenuItem onClick={() => setIsLogin(false)} fontFamily="Subheading">
-            <Image src={LogoutLogo} mr="4" alt="logout_logo" />
+            <Image
+              src={LogoutLogo}
+              mr="4"
+              alt="logout_logo"
+              draggable="false"
+            />
             <Text>Logout</Text>
           </MenuItem>
         </MenuList>
@@ -72,7 +82,7 @@ const Navbar = () => {
         px={8}
         color="white"
         bgColor="#F4A641"
-        onClick={() => setIsLogin(true)}
+        onClick={() => { window.location.href = '/login'} }
         fontFamily="Subheading"
       >
         Log In
@@ -99,6 +109,7 @@ const Navbar = () => {
             {/* TODO: ganti logo */}
             <Image
               src={Logo}
+              draggable="false"
               w="50px"
               objectFit="contain"
               mr={{ base: 0, md: 2 }}
@@ -145,7 +156,6 @@ const Navbar = () => {
                 color={match ? '#F4A641' : '#000000'}
                 textDecoration={match ? 'underline' : 'none'}
                 textDecorationColor="#FF7D4B"
-                transition="all 0.15s ease-in-out"
                 _hover={{
                   color: '#F4A641',
                   textDecoration: 'underline',
