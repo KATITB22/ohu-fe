@@ -14,11 +14,11 @@ import React, { useRef, useState } from 'react';
 import { PageLayout } from 'src/layout';
 import Logo from '@assets/logo_sementara.png';
 import {
-  EyeInvisibleOutlined,
-  EyeOutlined,
-  LockOutlined,
-  UserOutlined
-} from '@ant-design/icons';
+  AiFillLock,
+  AiOutlineUser,
+  AiOutlineEye,
+  AiOutlineEyeInvisible
+} from 'react-icons/ai';
 
 export const LoginPage = () => {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -31,7 +31,7 @@ export const LoginPage = () => {
     const username = usernameRef.current?.value;
 
     if (!username) {
-      setErrorText('Masukkan NIM kamu');
+      setErrorText('Masukkan NIM kamu!');
     }
 
     // auth logic here
@@ -74,47 +74,49 @@ export const LoginPage = () => {
         bg="white"
         borderRadius="10px"
       >
-        <form onSubmit={submitHandler}>
-          <Flex gap="2">
-            <UserOutlined width="1em" />
-            <FormLabel fontSize="xl">NIM / No. Registrasi</FormLabel>
-          </Flex>
-          <Input
-            type="text"
-            ref={usernameRef}
-            placeholder="Enter NIM/No. Registrasi"
-          />
-          <Flex mt="1em" gap="2">
-            <LockOutlined />
-            <FormLabel fontSize="xl">Password</FormLabel>
-          </Flex>
-          <Flex mt="0.4em">
-            <InputGroup>
-              <Input
-                type={passwordIsShown ? 'text' : 'password'}
-                placeholder="Enter password"
-                ref={passwordRef}
+        <Flex gap="2">
+          <AiOutlineUser size={25} />
+          <FormLabel fontSize="xl">NIM / No. Registrasi</FormLabel>
+        </Flex>
+        <Input
+          type="text"
+          ref={usernameRef}
+          placeholder="Enter NIM/No. Registrasi"
+        />
+        <Flex mt="1em" gap="2">
+          <AiFillLock size={25} />
+          <FormLabel fontSize="xl">Password</FormLabel>
+        </Flex>
+        <Flex mt="0.4em">
+          <InputGroup>
+            <Input
+              type={passwordIsShown ? 'text' : 'password'}
+              placeholder="Enter password"
+              ref={passwordRef}
+            />
+            <InputRightElement>
+              <Icon
+                as={passwordIsShown ? AiOutlineEyeInvisible : AiOutlineEye}
+                onClick={toggleShowPassword}
+                cursor="pointer"
+                fontSize="xl"
               />
-              <InputRightElement>
-                <Icon
-                  as={passwordIsShown ? EyeInvisibleOutlined : EyeOutlined}
-                  onClick={toggleShowPassword}
-                  cursor="pointer"
-                  fontSize="xl"
-                />
-              </InputRightElement>
-            </InputGroup>
-          </Flex>
+            </InputRightElement>
+          </InputGroup>
+        </Flex>
 
-          <Box h="1.2em" color="salmon">
-            {errorText}
-          </Box>
-          <Flex w="100%" justifyContent="flex-end">
-            <Button type="submit" mt="1em">
-              Login
-            </Button>
-          </Flex>
-        </form>
+        <Text fontFamily="Subheading" fontSize="lg" mt={2} color="salmon">
+          {errorText}
+        </Text>
+        <Flex w="100%" justifyContent="flex-end">
+          <Button
+            onClick={submitHandler}
+            _hover={{ backgroundColor: '#FFB08D' }}
+            mt="1em"
+          >
+            Login
+          </Button>
+        </Flex>
       </Box>
     </PageLayout>
   );

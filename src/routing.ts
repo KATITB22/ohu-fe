@@ -22,9 +22,9 @@ const Leaderboards = React.lazy(() =>
   }))
 );
 
-const LoginPage = React.lazy(() => 
+const LoginPage = React.lazy(() =>
   import('@pages/LoginPage').then((module) => ({
-    default: module.LoginPage    
+    default: module.LoginPage
   }))
 );
 
@@ -55,10 +55,11 @@ export const Routing: PageRouting[] = [
     title: 'OHU Tour',
     path: '/tour',
     component: TourPage
-  }, {
+  },
+  {
     title: 'Login',
     path: '/login',
-    component: LoginPage,
+    component: LoginPage
   },
   PageNotFoundRouting
 ];
