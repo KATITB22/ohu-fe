@@ -21,24 +21,24 @@ export const TourLegend = ({
   const isMobile = useMediaQuery('(max-width: 640px)');
 
   const Legend = ({
-    logo,
-    title,
+    url,
+    name,
     position
   }: {
-    logo: string;
-    title: string;
+    url: string;
+    name: string;
     position: [number, number];
   }) => (
     <Flex>
       <Image
         borderRadius="full"
         boxSize="67px"
-        src={logo}
+        src={url}
         draggable="false"
         onClick={() => map?.setView(position)}
       />
       <Text textAlign="center" fontSize="30px" m="auto 27px" mr="0">
-        {title}
+        {name}
       </Text>
     </Flex>
   );

@@ -1,5 +1,4 @@
 import { Box, useMediaQuery } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L, { Map } from 'leaflet';
 import { TourData } from '@pages/PageTour';
@@ -44,7 +43,7 @@ export const TourMap = ({ data, setMap }: Props) => {
             <Marker key={marker.name} icon={icon} position={marker.position}>
               <Popup>
                 <TourPopup>
-                  {marker.name} <ExternalLinkIcon />
+                  {marker.name}
                 </TourPopup>
               </Popup>
             </Marker>

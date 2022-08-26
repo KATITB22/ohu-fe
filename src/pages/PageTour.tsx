@@ -13,9 +13,9 @@ export interface TourData {
   centerPosition: [number, number];
   zoom: number;
   markers: {
-    ext_id: string;
+    id: string;
     name: string;
-    image: string;
+    url: string;
     position: [number, number];
   }[];
 }
@@ -33,9 +33,9 @@ export const Tour = () => {
 
   const fetchData = async () => {
     const markers: {
-      ext_id: string;
+      id: string;
       name: string;
-      image: string;
+      url: string;
       position: [number, number];
     }[] = await getUnits('/units/map');
 
