@@ -11,17 +11,16 @@ import { TourPopup } from './Popup';
 
 interface Props {
   data: TourData;
-  // eslint-disable-next-line no-unused-vars
   setMap: (map: Map) => void | null;
 }
 
 export const TourMap = ({ data, setMap }: Props) => {
   const isMobile = useMediaQuery('(max-width: 640px)');
   const icon = L.icon({ iconUrl: MarkerIcon });
-  var southWest = L.latLng(-60, 100),
-  northEast = L.latLng(70, -100),
-  //saliek kopā SW+NE koordinātas
-    bounds = L.latLngBounds(southWest, northEast);
+  const southWest = L.latLng(-60, 100);
+  const northEast = L.latLng(70, -100);
+  const bounds = L.latLngBounds(southWest, northEast);
+
   return (
     <motion.div {...getTransition('bottom', { delay: 0.1 })}>
       <Box
@@ -41,10 +40,10 @@ export const TourMap = ({ data, setMap }: Props) => {
         >
           <TileLayer url="../Tiles/{z}/{x}/{y}.png" />
           {data.markers.map((marker) => (
-            <Marker key={marker.title} icon={icon} position={marker.position}>
+            <Marker key={marker.name} icon={icon} position={marker.position}>
               <Popup>
                 <TourPopup>
-                  {marker.title} <ExternalLinkIcon />
+                  {marker.name} <ExternalLinkIcon />
                 </TourPopup>
               </Popup>
             </Marker>

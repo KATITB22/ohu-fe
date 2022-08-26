@@ -108,5 +108,3 @@ export const TourLegend = ({
     </Flex>
   );
 };
-
-// { data.markers.map((marker) => <Legend {...marker} /> )}
