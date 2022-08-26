@@ -42,7 +42,7 @@ export const Tour = () => {
     const data: TourData = {
       centerPosition: [0, 0],
       zoom: 2,
-      markers: markers
+      markers
     };
 
     setData(data);
@@ -50,9 +50,9 @@ export const Tour = () => {
 
   useEffect(() => {
     fetchData()
-    .then(() => setIsLoading(false))
-    .catch(() => setIsLoading(false));
-  }, [data]);
+      .then(() => setIsLoading(false))
+      .catch(() => setIsLoading(false));
+  }, []);
 
   return (
     <PageLayout title="Map Tour">

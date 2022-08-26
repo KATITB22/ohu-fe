@@ -11,6 +11,7 @@ import { TourPopup } from './Popup';
 
 interface Props {
   data: TourData;
+  // eslint-disable-next-line no-unused-vars
   setMap: (map: Map) => void | null;
 }
 
