@@ -3,7 +3,6 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L, { Map } from 'leaflet';
 import { TourData } from '@pages/PageTour';
 
-import MarkerIcon from '@assets/marker-icon.png';
 import { motion } from 'framer-motion';
 import { getTransition } from 'src/util/transition';
 import { TourPopup } from './Popup';
@@ -14,9 +13,10 @@ interface Props {
   setMap: (map: Map) => void | null;
 }
 
+const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
+
 export const TourMap = ({ data, setMap }: Props) => {
   const isMobile = useMediaQuery('(max-width: 640px)');
-  const icon = L.icon({ iconUrl: MarkerIcon });
   const southWest = L.latLng(-60, 100);
   const northEast = L.latLng(70, -100);
   const bounds = L.latLngBounds(southWest, northEast);
@@ -40,11 +40,13 @@ export const TourMap = ({ data, setMap }: Props) => {
         >
           <TileLayer url="../Tiles/{z}/{x}/{y}.png" />
           {data.markers.map((marker) => (
-            <Marker key={marker.name} icon={icon} position={marker.position}>
+            <Marker
+              key={marker.name}
+              icon={L.icon({ iconUrl: `${BASE_URL}${marker.url}` })}
+              position={marker.position}
+            >
               <Popup>
-                <TourPopup>
-                  {marker.name}
-                </TourPopup>
+                <TourPopup>{marker.name}</TourPopup>
               </Popup>
             </Marker>
           ))}

@@ -6,7 +6,7 @@ export const getUnits = async (url: string) => {
   const { data } = await axios.get(`${BASE_URL}${url}`, {
     headers: {
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYxNTEzNzY1LCJleHAiOjE2NjQxMDU3NjV9.lIqAS9RAXc1Z5s8MeviMf024n7QNGp8jsC0iHlAX7zo'
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYxNTE2Nzk5LCJleHAiOjE2NjQxMDg3OTl9.JWR5-G5geq36cb4MtV_AZZbGtnuA5vwacXwEFADzCRA'
     }
   });
 
