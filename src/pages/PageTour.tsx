@@ -41,7 +41,7 @@ export const Tour = () => {
 
     const data: TourData = {
       centerPosition: [0, 0],
-      zoom: 2,
+      zoom: 3,
       markers
     };
 
