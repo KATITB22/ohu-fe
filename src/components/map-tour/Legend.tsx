@@ -11,8 +11,6 @@ import { Map } from 'leaflet';
 import { TourData } from '@pages/PageTour';
 import { motion } from 'framer-motion';
 
-const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
-
 export const TourLegend = ({
   data,
   map
@@ -35,7 +33,7 @@ export const TourLegend = ({
       <Image
         borderRadius="full"
         boxSize="67px"
-        src={`${BASE_URL}${url}`}
+        src={url}
         draggable="false"
         onClick={() => map?.setView(position)}
       />

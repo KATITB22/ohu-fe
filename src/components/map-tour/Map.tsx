@@ -13,8 +13,6 @@ interface Props {
   setMap: (map: Map) => void | null;
 }
 
-const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
-
 export const TourMap = ({ data, setMap }: Props) => {
   const isMobile = useMediaQuery('(max-width: 640px)');
   const southWest = L.latLng(-60, 100);
@@ -42,7 +40,7 @@ export const TourMap = ({ data, setMap }: Props) => {
           {data.markers.map((marker) => (
             <Marker
               key={marker.name}
-              icon={L.icon({ iconUrl: `${BASE_URL}${marker.url}` })}
+              icon={L.icon({ iconUrl: marker.url })}
               position={marker.position}
             >
               <Popup>
